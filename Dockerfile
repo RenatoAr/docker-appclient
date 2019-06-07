@@ -3,5 +3,5 @@ ADD ./src/req.txt /tmp/req.txt
 RUN pip install -qr /tmp/req.txt
 ADD ./src /opt/src/
 WORKDIR /opt/src
-EXPOSE 5000
+EXPOSE 5001
 CMD ["python", "app.py"]
