@@ -8,6 +8,11 @@ app = Flask(__name__)
 dados = 'nada'
 # client = docker.from_env()
 # container = client.containers.get('docker-flask')
+client = docker.from_env()
+objdocker = docker.Client(base_url="unix://var/run/docker.sock")
+objdocker.stats_container = objdocker.stats('docker-appclient')
+for stat in objdocker.stats_container:
+print(stat)
 
 @app.route('/', methods=['GET'])
 def getinfo():
