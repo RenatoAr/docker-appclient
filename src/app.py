@@ -6,7 +6,8 @@ import docker
 app = Flask(__name__)
 
 dados = 'nada'
-myCmd = 'ls'
+myCmd = 'sudo docker stats --no-stream'
+os.system(myCmd)
 # client = docker.from_env()
 # container = client.containers.get('docker-flask')
 
