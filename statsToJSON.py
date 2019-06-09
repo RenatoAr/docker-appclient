@@ -17,3 +17,5 @@ data['timestamp'] = str(timestamp)
 data['imageID'] = os.popen('sudo docker images --filter=reference=docker-appclient --format "table {{.ID}}\t"').read()
 #Dados do Container
 data['containerStats'] = os.popen('sudo docker stats --no-stream --format "table {{.Name}}\t{{.ID}}\t{{.CPUPerc}}\t{{.MemUsage}}"').read()
+
+dockerStatsToJSON (path, filename, data)
