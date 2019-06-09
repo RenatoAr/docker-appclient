@@ -4,4 +4,4 @@ RUN pip install -qr /tmp/requirements.txt
 ADD ./src /opt/src/
 WORKDIR /opt/src
 EXPOSE 5000
-CMD ["python", "app.py"]
+CMD ["python", "appclient.py"]
