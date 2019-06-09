@@ -1,30 +1,23 @@
 import os
+import statsToJSON
 
 from flask import Flask, request
 import docker
 
 app = Flask(__name__)
 
-dados = 'nada'
-myCmd = 'sudo docker stats --no-stream'
-os.system(myCmd)
-# client = docker.from_env()
-# container = client.containers.get('docker-flask')
+dados = 'Hello World\n'
 
 @app.route('/', methods=['GET'])
 def getinfo():
     global dados
-    os.system(myCmd)
-    # global container
-    #return 'Hello '+ container
-    return 'Hello '+ dados
+    return dados
 
 @app.route('/', methods=['POST'])
 def postinfo():
     global dados
     dados = request.form['nome']
-    return 'hello' + dados
+    return dados
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', debug:True)
