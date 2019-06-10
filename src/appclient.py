@@ -1,9 +1,9 @@
 import os
 
+import docker
+client = docker.from_env()
+
 from flask import Flask, request
-
-cmd = 'docker ps -a'
-
 app = Flask(__name__)
 
 dados = 'Hello World\n'
@@ -11,7 +11,7 @@ dados = 'Hello World\n'
 @app.route('/GET_INFO', methods=['GET'])
 def getinfo():
     global dados
-    os.system(cmd)
+    dados = client.containers.get('docker-appclient')
     return dados
 
 @app.route('/POST_INFO', methods=['POST'])
