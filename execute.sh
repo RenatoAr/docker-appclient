@@ -1,5 +1,7 @@
 #!bin/bash
 
+#Para container caso esteja rodando
+sudo docker stop docker-appclient
 #Destroi container docker-appclient se exisir
 sudo docker rm docker-appclient
 #Destroi imagem docker-appclient se exitir
