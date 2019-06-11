@@ -25,8 +25,8 @@ def postinfo():
     usocpu = os.popen(usocpu).read()
     usomem = 'docker stats --no-stream --format "{{.MemUsage}}"'
     usomem = os.popen(usomem).read()
-    r = requests.post('http://192.168.50.10:5000/POST_INFO', data=[('timestamp',timestamp), ('nomecontainer', nomecontainer), ('idcontainer', idcontainer), ('imageid', imageid), ('usocpu', usocpu), ('usomem', usomem)])
-    return 'Docker Stats enviado!'
+    r = requests.post('http://192.168.50.10:5000/POST_INFO', data=[('timestamp',timestamp), ('nomecontainer',nomecontainer), ('idcontainer',idcontainer), ('imageid',imageid), ('usocpu',usocpu), ('usomem',usomem)])
+    return 'Docker Stats enviado!\n'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
