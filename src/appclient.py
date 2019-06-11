@@ -21,11 +21,11 @@ def postinfo():
     idcontainer = os.popen(idcontainer).read()
     imageid = 'docker images --filter=reference=docker-appclient --format "{{.ID}}"'
     imageid = os.popen(imageid).read()
-    cpuusage = 'docker stats --no-stream --format "{{.CPUPerc}}"'
-    cpuusage = os.popen(cpuusage).read()
-    memusage = 'docker stats --no-stream --format "{{.MemUsage}}"'
-    memusage = os.popen(memusage).read()
-    r = requests.post('http://192.168.50.10:5000/POST_INFO', data=[('timestamp',timestamp), ('nomedocontainer', nomecontainer), ('idcontainer', idcontainer), ('idimage', imageid), ('usocpu', cpuusage), ('usomem', memusage)])
+    usocpu = 'docker stats --no-stream --format "{{.CPUPerc}}"'
+    usocpu = os.popen(usocpu).read()
+    usomem = 'docker stats --no-stream --format "{{.MemUsage}}"'
+    usomem = os.popen(usomem).read()
+    r = requests.post('http://192.168.50.10:5000/POST_INFO', data=[('timestamp',timestamp), ('nomecontainer', nomecontainer), ('idcontainer', idcontainer), ('imageid', imageid), ('usocpu', usocpu), ('usomem', usomem)])
     return 'Docker Stats enviado!'
 
 if __name__ == '__main__':
