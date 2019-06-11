@@ -1,5 +1,6 @@
 FROM python:3.7-alpine
 ADD ./src/requirements.txt /tmp/requirements.txt
+ADD ./execute.sh /execute.sh
 RUN pip install -qr /tmp/requirements.txt
 RUN apk add docker
 ADD ./src /opt/src/
